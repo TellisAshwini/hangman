@@ -49,4 +49,23 @@ Create a variable that asks for user input to enter a single letter.
 - Check if the length of the letter is 1 and the input is a alphabet (check using 'isalpha' function) 
 - If the condition is met, print a message to the user saying he guessed it correctly. If not then print a message saying its a invalid input
 
+## Milestone 3:
+
+Create a milestone_3.py file in the repository
+
+Define a function 'ask_for_input' that asks for user input
+- Use 'while loop' and set the condition to 'True'
+- In the 'while loop' create a variable 'guess' that asks for user input to enter a single letter.
+- Check if the length of the letter 'guess' is 1 and the input is a alphabet (check using 'isalpha' function) 
+- If the condition is not met print a message saying it is a invalid letter and continue the loop until the user provides a valid input
+- If the condition is met, break out of the loop and call the check_guess function with 'guess' as the argument. 
+- The check_guess function is explained below
+
+Define 'check_guess' function that takes 1 argument 'guess'
+- Within the function convert 'guess' to lowercase
+- Using 'if statement' check if the letter 'guess' is present in the computer generated word
+- If the letter is present print saying it is a good guess
+- If not print saying its not a right guess
+
+
 
