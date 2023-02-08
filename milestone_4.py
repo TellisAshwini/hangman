@@ -21,9 +21,9 @@ class Hangman:
                 print("Invalid letter. Please, enter a single alphabetical character.")
             elif guess in self.list_of_guesses:
                 print("You already tried that letter!")
-                break
             else:
                 self.check_guess(guess)
+                break
 
 player1 = Hangman(word_list)
 player1.ask_for_input()
