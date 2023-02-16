@@ -1,71 +1,218 @@
 # Hangman
-Hangman is a classic game in which a player thinks of a word and the other player tries to guess that word within a certain amount of attempts.
+Hangman is a classic game in which a player thinks of a word and the other player tries to guess that word within a certain number of attempts.
 
 This is an implementation of the Hangman game, where the computer thinks of a word and the user tries to guess it. 
-
-
-- Git manages multiple versions of source code and record them into a repository. It is a distributed version control system used in this project
-
-- GitHub is the cloud based platform used in this project. It serves as a location for uploading copies of a Git repository for collaboration
-
-- Bash terminal in the VSCode platform is used to run all the commands for Git and for running the python script. 
-
-- Vim is the source-code editor used to edit and update the python scripts and README file 
-
-## Milestone 1:
-
-Create a repository with the name 'hangman' in GitHub to save everything in one place
-
-## Milestone 2:
 \
-The below command clones the 'hangman' repository in the GitHub to the bash terminal in the local machine
-
-        git clone https://github.com/TellisAshwini/hangman.git
+<img src = https://raw.githubusercontent.com/TellisAshwini/hangman/main/Images/11_hangman.png width = "300" height = "230" />
 \
-The below command is used to create a file milestone_2.py within 'hangman' repository
+This is a project from AiCore to learn and understand working with the basics of object oriented programming principles using python scripts. Hangman game is created step by step in 5 different milestones.
 
-        touch milestone_2.py
+
+
+## Milestone 1
 \
-The below commands are frequently used to stage changes and commit them to the 'hangman' repository
-
-        git add milestone_2.py
-        git commit milestone_2.py
-\
-The below command is used to push the commited changes in the  local repository to the GitHub repository
-
-        git push
-\
-The below command is used to edit or update the python code in milestone_2.py
-
-        vim milestone_2.py
+This milestone gives an overview on the version control systems. In this project we use Git and GitHub for this purpose. 
+`hangman` repository is created in the GitHub.
 
 \
-In milestone_2.py file, create a python list of 5 fruits. 
-- Import the 'random' module
-- Using 'choice' method of this module, print a random element from the created list
+<img src = "https://raw.githubusercontent.com/TellisAshwini/hangman/main/Images/1_hangman_repository.png" width = "600" height = "250" />
+\
+
+Git is a distributed version control system that manages multiple versions of source code and record them into a repository. GitHub is the cloud-based platform used in this project. It serves as a location for uploading copies of a Git repository for collaboration.
+
+Bash terminal in the VSCode is a platform used to run all the commands for Git and for running the python script.
+
+Below are some basic commands that we frequently use in the bash terminal.
+
+- ```git clone``` command clones the `hangman` repository in the GitHub to the bash terminal in the local machine.
+
+
+- ```git add``` and ```git commit``` commands are frequently used to stage changes and commit them to the 'hangman' repository.
+ 
+- ```git push``` command is used to push the committed changes in the  local repository to the GitHub repository.
+
+- ```touch``` command is used to create a file within 'hangman' repository.
+
+Vim is the source-code editor in the Bash terminal used to edit and update the python scripts and README file.
+
+## Milestone 2
+
+A random word is picked by the machine and the player will have to guess that word. The random word is generated from the `word_list` (list of words). This is performed by importing the `random` module.
+
+```
+import random
+word_list = ['Apple', 'Plum', 'Grapes', 'Orange', 'Pineapple']
+print(word_list)
+word = random.choice(word_list)
+print(word)
+```
+
+<img src = "https://raw.githubusercontent.com/TellisAshwini/hangman/main/Images/2_random_word_selected.png" width = "510" height = "41" />
+
+This image shows the random word selrcted by the machine from the list of words using the random module
 
 \
-Create a variable that asks for user input to enter a single letter. 
-- Check if the length of the letter is 1 and the input is a alphabet (check using 'isalpha' function) 
-- If the condition is met, print a message to the user saying he guessed it correctly. If not then print a message saying its a invalid input
+The player is asked to enter the letter. This is done using the `input` function.`len` function and `isalpha` method is used to validate the input by making sure that only a single alphabet is entered.
 
-## Milestone 3:
+```
+guess = input('Please enter a single letter here: ')
+if len(guess) == 1 and guess.isalpha():
+    print("Good guess!")
+else:
+    print("Oops! That is not a valid input.")
+```
 
-Create a milestone_3.py file in the repository
-
-Define a function 'ask_for_input' that asks for user input
-- Use 'while loop' and set the condition to 'True'
-- In the 'while loop' create a variable 'guess' that asks for user input to enter a single letter.
-- Check if the length of the letter 'guess' is 1 and the input is a alphabet (check using 'isalpha' function) 
-- If the condition is not met print a message saying it is a invalid letter and continue the loop until the user provides a valid input
-- If the condition is met, break out of the loop and call the check_guess function with 'guess' as the argument. 
-- The check_guess function is explained below
-
-Define 'check_guess' function that takes 1 argument 'guess'
-- Within the function convert 'guess' to lowercase
-- Using 'if statement' check if the letter 'guess' is present in the computer generated word
-- If the letter is present print saying it is a good guess
-- If not print saying its not a right guess
+<img src = "https://raw.githubusercontent.com/TellisAshwini/hangman/main/Images/3_len_isalpha_output.png" width = "300" height = "37" />
 
 
+## Milestone 3
+
+If the player enters an invalid input, then the player is asked to enter again. This continues until a valid input is entered. This is performed within `ask_for_input` function. This function asks the player to input a single alphalet and validates it. `while loop` is used to repeat asking the player to enter a single letter until a valid input is entered.
+
+<img src = "https://raw.githubusercontent.com/TellisAshwini/hangman/main/Images/4_loop_until_valid_input.png" width = "450" height = "120" />
+
+Here we can see the loop repeating until a single alphabet is entered by the player.
+
+\
+The guessed letter is then assigned to a variable `guess` and `check_guess` function is called by passing `guess` as its parameter. 
+`guess` is compared with the word generated by the machine to check if the guessed letter is in the word. This is performed by `check_guess` functions.
+
+<img src = "https://raw.githubusercontent.com/TellisAshwini/hangman/main/Images/5_good_guess.png" width = "300" height = "40" />
+
+`check_guess` function checks if the guessed letter `guess` is in the word or not using `if statement`. and prints that it is a good guess if the letter is present else prints that the letter is not in the word.
+
+## Milestone 4
+This project uses the object-oriented programming principles to create this game. 
+
+`Hangman` class is created. The `check_guess` and `ask_for_input` methods are defined in this class. 
+
+<img src = "https://raw.githubusercontent.com/TellisAshwini/hangman/main/Images/6_init_method.png" width = "450" height = "180" />
+
+Using `__init__` method the attributes are initialized.
+
+\
+`list_of_guesses` is a list of letters that are already guessed. In the `check_guess` method the `list_of_guesses` is updated, whenever a letter is guessed. 
+
+<img src = "https://raw.githubusercontent.com/TellisAshwini/hangman/main/Images/7_list_of_guesses.png" width = "300" height = "70" />
+
+While asking for the input the `ask_for_input` method checks if the guessed letter is repeated by comparing the guessed letter in `list_of_guesses`. If the letter is already guessed, a message is printed saying that the letter is already guessed.
+
+
+`num_letter` is a integer which tells how many unique letters are there in a word. Each time the letter in the word is guessed correctly the `num_letter` is reduced by 1 within the `check_guess` method.
+
+`word_guessed` is a list with underscores '`_`'. The number of these underscores is equal to the length of the word.
+For example: if the `word` is pineapple. The length of pineapple is 9.
+Hence `word_guessed` is `['_', '_', '_', '_', '_', '_', '_', '_', '_']`
+Each time the letter is guessed correctly the `'_'` is replaced by that letter
+For example, if `guess` is `n` the `word_guessed` will be updated to `['_', '_', 'n', '_', '_', '_', '_', '_', '_']`. 
+For this operation I have used the `enumerate` function where the index of the letters of the `word` is located and hence the '`_`' is replaced by those letters.
+
+```
+for index, letter in enumerate(self.word):
+    if guess == letter:
+        self.word_guessed[index] = guess
+```
+
+A player has 5 lives. Each time the player guesses the letter wrong, life is reduced. Hence `num_lives` is reduced when the player guesses the letter wrong.
+
+<img src = "https://raw.githubusercontent.com/TellisAshwini/hangman/main/Images/8_numlife4.png" width = "270" height = "250" />
+
+## Milestone 5
+
+`play_game` function starts the game by check the number of lives the player has and the number of letter to be guessed, with `word_list` as its parameter. `game` is an instance of class `Hangman` defined within `play_game`.
+
+If the `num_lives` is greater than 0 then the game is started. `ask_for_input` method is called until `num_lives` is equals to 0.
+If the player has one or more lives and if all the letters in the word are guessed then the Player wins the game.
+If the player has lost all the lives then the player loses the game.
+
+<img src = "https://raw.githubusercontent.com/TellisAshwini/hangman/main/Images/9_numlife0.png" width = "270" height = "250" />
+
+
+
+## Colour to `print` 
+Addition to these milestones I have added some more features to this game.
+
+To make this game a little more colourful I have imported `Fore` from the `colorama` module. This adds colour to the print statement.
+
+<img src = "https://raw.githubusercontent.com/TellisAshwini/hangman/main/Images/12_colour.png" width = "360" height = "300" />
+
+
+## Hangman visuals
+I have added `hangman_visuals` method inside the class `Hangman` that will show the hangman visual everytime the player loses a life.
+
+For this I have created a list and each element is a docstring. Each element shows various stages of visual of hangman.
+hangman_lives = [
+
+                """
+        ________
+        ¦     ¦
+        ¦     O
+        ¦    \¦/
+        ¦     ¦
+        ¦    / \ 
+        ¦
+        ¦
+        ¦___________
+
+        """,
+
+                """
+        ________
+        ¦     ¦
+        ¦     O
+        ¦    \¦/
+        ¦     ¦
+        ¦    / 
+        ¦
+        ¦
+        ¦___________
+
+        """ ,
+
+            """
+        ________
+        ¦     ¦
+        ¦     O
+        ¦    \¦/
+        ¦     
+        ¦     
+        ¦
+        ¦
+        ¦___________
+
+        """ ,
+
+            """
+        ________
+        ¦     ¦
+        ¦     O
+        ¦    \¦
+        ¦     
+        ¦     
+        ¦
+        ¦
+        ¦___________
+
+        """ , 
+
+            """
+        ________
+        ¦     ¦
+        ¦     O
+        ¦    
+        ¦     
+        ¦     
+        ¦
+        ¦
+        ¦___________
+
+        """
+
+This method prints `hangman_lives[num_lives]`. The list indexing is done such that when `num_lives` is 4, the `hangman_lives[4]` is displayed, when `num_lives` is 3, the `hangman_lives[3]` is displayed and so on.
+
+<img src = "https://raw.githubusercontent.com/TellisAshwini/hangman/main/Images/8_numlife4.png" width = "270" height = "250" />
+
+Here we can see the `hangman_lives[4]` is displayed when then number of lives are 4.
+
+This is how the hangman game is created in steps. This projects is not just fun to build but also gives strong foundantion on the OOP concept.
 
