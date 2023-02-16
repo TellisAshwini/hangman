@@ -137,20 +137,18 @@ def play_game(word_list):
                 print(Fore.LIGHTGREEN_EX + 'Congratulations. You won the game!' + Fore.RESET)
                 break
 
-def main():
-    #Checks if the player wants to play again.
-    print(Fore.LIGHTBLUE_EX + 'Welcome to the Hangman game!\n\n')
-    print(Fore.LIGHTCYAN_EX + 'You need to guess the word correctly to win this game')
-    print('You have 5 lives. Each time you guess the letter wrong you will lose one life')
-    print(Fore.CYAN + f'Lets Begin... !!\n\n' + Fore.RESET)
-    play_again = 'Y'
-    while play_again.upper() == 'Y':
-        word_list = ['apple', 'avocado', 'banana','blueberry', 'blackberry','cherry',  'cranberry', 'dragonfruit', 
-        'grapefruit', 'grape', 'jackfruit','kiwi', 'lychee', 'lemon', 'mangosteen', 'muskmelon', 'mango', 
-        'orange', 'pineapple', 'pear', 'pomegranate', 'papaya','raspberry', 'rambutan','strawberry', 'tangerine',
-         'watermelon']
-        play_game(word_list)
-        play_again = input('Would you like to play again??.. (Y/N): ')
-    print(Fore.CYAN + 'GAME OVER' + Fore.RESET)
 
-main()
+#Checks if the player wants to play again.
+print(Fore.LIGHTBLUE_EX + 'Welcome to the Hangman game!\n\n')
+print(Fore.LIGHTCYAN_EX + 'You need to guess the word correctly to win this game')
+print('You have 5 lives. Each time you guess the letter wrong you will lose one life')
+print(Fore.CYAN + f'Lets Begin... !!\n\n' + Fore.RESET)
+play_again = 'Y'
+while play_again.upper() == 'Y':
+    word_list = ['apple', 'avocado', 'banana','blueberry', 'blackberry','cherry',  'cranberry', 'dragonfruit', 
+    'grapefruit', 'grape', 'jackfruit','kiwi', 'lychee', 'lemon', 'mangosteen', 'muskmelon', 'mango', 
+    'orange', 'pineapple', 'pear', 'pomegranate', 'papaya','raspberry', 'rambutan','strawberry', 'tangerine',
+        'watermelon']
+    play_game(word_list)
+    play_again = input('Would you like to play again??.. (Y/N): ')
+print(Fore.CYAN + 'GAME OVER' + Fore.RESET)
